@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-
 import "./App.css";
 import Character from "./components/Character";
+import Details from "./components/Details";
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -45,9 +45,11 @@ const App = () => {
       {
       
       data.map((character) => {
-        return <Character character={character} openDetails={openDetails} key={character.name} /> 
+        return <Character character={character} action={openDetails} key={character.name} /> 
       })
-      
+      }
+            {
+        currentPersonData && <Details person={currentPersonData} close={closeDetails}/>
       }
     </div>
   );
