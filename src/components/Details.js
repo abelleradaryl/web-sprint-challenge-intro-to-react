@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import {Button} from "reactstrap";
 import axios from "axios";
+import Character from "./Character"
 
 
 export default function Details(props) {
     const { person, close } = props
     const [details, setDetails] = useState([])
-  
+
     useEffect(() => {
         axios.get("https://swapi.dev/api/people/")
         .then(resp => {
@@ -15,18 +15,16 @@ export default function Details(props) {
         })
         .catch(error => { console.error(error) })
     }, [person])
-  
+
     return (
       <div className='details-container'>
-        <h2>About:</h2>
+        <h2>Films:</h2>
         {details &&
         <>
-          <p>{person.name}</p>
-          <p>{person.age}</p>
-          <p>{person.birth_year}</p>
+          {/* .map */}
         </>
         }
-        <Button onClick={close}>Exit</Button>
+        <button onClick={close}>Exit</button>
       </div>
     )
-  }
+  } 

@@ -3,6 +3,19 @@ import axios from "axios";
 import "./App.css";
 import Character from "./components/Character";
 import Details from "./components/Details";
+import styled, { keyframes } from 'styled-components'
+
+const StyledApp = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+    padding: 100px;
+    margin: 5px;
+    `
+
+
 
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
@@ -14,15 +27,15 @@ const App = () => {
   const [ data, setData ] = useState([]);
   const [currentPersonData, setCurrentPersonData] = useState("1");
   const [ apiError, setApiError ] = useState(null)
-
+  
   const openDetails = id => {
     setCurrentPersonData(id)
   }
-
+  
   const closeDetails = () => {
     setCurrentPersonData(null)
   }
-
+  
   useEffect(() => {
     console.log("We're Working");
   }, [])
@@ -36,24 +49,32 @@ const App = () => {
     .catch(err => setApiError("Oops, We'll be back soon!!"));
   }, [])
 
-
-
   return (
-    <div className="App">
+    <StyledApp className="App">
+      <h1 className="Header">STAR WARS</h1>
       { apiError && <h2 className="error">{apiError}</h2>}
-      <h1 className="Header">Characters</h1>
+
       {
-      
       data.map((character) => {
         return <Character character={character} action={openDetails} key={character.name} /> 
       })
+
       }
-            {
+      {
         currentPersonData && <Details person={currentPersonData} close={closeDetails}/>
       }
-    </div>
+    </StyledApp>
   );
 }
-
 export default App;
 /* https://swapi.dev/api/people/ */
+
+// birth_year: "19BBY""
+// eye_color: "blue"
+// gender: "male"
+// hair_color: "blond"
+// height: "172"
+// mass: "77"
+// name: "Luke Skywalker"
+
+// birthYear={character.birth_year}
