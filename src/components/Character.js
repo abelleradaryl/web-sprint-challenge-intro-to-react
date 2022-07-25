@@ -13,16 +13,15 @@ const kf = keyframes`
 `
 
 const StyledCharacter = styled.div`
-    width: 100%;
+    width: 75%;
     display: flex;
     justify-content: space-between;
-    // align-items: center
+    align-items: center
     padding: 5px;
     margin: 5px;
-    border-borrom: 2px solid white;
 
-    // background-color: ${pr => pr.theme.primaryColor};
-    // color: ${pr => pr.theme.secondaryColor};
+    background-color: ${pr => pr.theme.primaryColor};
+    color: ${pr => pr.theme.secondaryColor};
 
     @media ${pr => pr.theme.breakpointMobile} {
       width: 100%;
@@ -58,12 +57,12 @@ const StyledCharacter = styled.div`
           <StyledCharacter className="characters-container">
              <h2>{props.character.name}</h2>
              <div className='p-container'>
-                <ul>Birth Year: {props.character.birth_year}</ul>
-                <ul>Gender: {props.character.gender}</ul>
-                <ul>Height: {props.character.height}</ul>
+                  <p> Birth Year: { props.character.birth_year} </p>
+                  <p> Gender: { props.character.gender} </p>
+                  <p> Height: { props.character.height} </p>
               </div>
               <button onClick={() => action(props.character.data)}>
-                  {props.character.birth_year} 
+                  More Details 
               </button>
           </StyledCharacter>
       )

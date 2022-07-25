@@ -51,7 +51,7 @@ const App = () => {
 
   return (
     <StyledApp className="App">
-      <h1 className="Header">STAR WARS</h1>
+      <div className="header"></div>
       { apiError && <h2 className="error">{apiError}</h2>}
 
       {

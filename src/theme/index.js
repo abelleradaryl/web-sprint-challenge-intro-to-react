@@ -1,8 +1,6 @@
 export default {
-    primaryColor: "Red",
-    secondaryColor: "linen",
-    tertiaryColor: "tan",
-    black: "black",
-    white: "white",
-    breakpointMobile: "(max-width: 550px)"
+    primaryColor: "rgba(50, 50, 100, 0.7)",
+    secondaryColor: "white",
+    tertiaryColor: "skyblue",
+    breakpointMobile: "(max-width: 550px)",
   }
